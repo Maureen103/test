@@ -90,29 +90,6 @@
             color: white;
         }
 
-        /* Styles pour Tic-Tac-Toe */
-        .tic-tac-toe {
-            display: grid;
-            grid-template-columns: repeat(3, 100px);
-            gap: 10px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .tic-tac-toe button {
-            width: 100px;
-            height: 100px;
-            font-size: 24px;
-            background-color: #444;
-            color: white;
-            border: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .tic-tac-toe button:hover {
-            background-color: #1abc9c;
-        }
-
         /* Galerie */
         .gallery {
             display: grid;
@@ -160,25 +137,12 @@
             document.body.classList.toggle("light-mode");
             document.body.classList.toggle("dark-mode");
         }
-
-        // Jeu Tic-Tac-Toe
-        let currentPlayer = 'X';
-        let board = ['', '', '', '', '', '', '', '', ''];
-
-        function handleClick(index) {
-            if (board[index] === '') {
-                board[index] = currentPlayer;
-                document.getElementById("cell" + index).innerText = currentPlayer;
-                currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-            }
-        }
     </script>
 </head>
 <body class="dark-mode">
 
     <div class="navbar">
         <a href="javascript:void(0)" onclick="openTab('tab1')">Présentation</a>
-        <a href="javascript:void(0)" onclick="openTab('tab3')">Jeu Tic-Tac-Toe</a>
         <a href="javascript:void(0)" onclick="openTab('tab4')">Galerie</a>
     </div>
 
@@ -188,22 +152,6 @@
     <div id="tab1" class="content active">
         <h2>Bienvenue sur Tryzortex</h2>
         <p class="animated-text">Découvrez des fonctionnalités interactives et fun !</p>
-    </div>
-
-    <!-- Jeu Tic-Tac-Toe -->
-    <div id="tab3" class="content">
-        <h2>Jeu Tic-Tac-Toe</h2>
-        <div class="tic-tac-toe">
-            <button id="cell0" onclick="handleClick(0)"></button>
-            <button id="cell1" onclick="handleClick(1)"></button>
-            <button id="cell2" onclick="handleClick(2)"></button>
-            <button id="cell3" onclick="handleClick(3)"></button>
-            <button id="cell4" onclick="handleClick(4)"></button>
-            <button id="cell5" onclick="handleClick(5)"></button>
-            <button id="cell6" onclick="handleClick(6)"></button>
-            <button id="cell7" onclick="handleClick(7)"></button>
-            <button id="cell8" onclick="handleClick(8)"></button>
-        </div>
     </div>
 
     <!-- Galerie -->
