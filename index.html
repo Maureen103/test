@@ -27,10 +27,9 @@
             background-color: #333;
             padding: 15px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            position: relative;
         }
 
-        .navbar a, .dropdown-content a {
+        .navbar a {
             padding: 15px 30px;
             color: white;
             text-decoration: none;
@@ -38,7 +37,7 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .navbar a:hover, .dropdown-content a:hover {
+        .navbar a:hover {
             background-color: #1abc9c;
             color: #fff;
         }
@@ -116,43 +115,6 @@
             box-shadow: 0 0 15px #1abc9c; /* Effet de néon vert au survol */
         }
 
-        /* Styles du logo */
-        .logo {
-            width: 50px;
-            height: auto;
-            margin-right: 20px;
-        }
-
-        /* Styles pour le menu déroulant */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #333;
-            min-width: 160px;
-            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #1abc9c;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
         /* Responsive design */
         @media (max-width: 768px) {
             .navbar a {
@@ -191,16 +153,9 @@
 <body class="dark-mode">
 
     <div class="navbar">
-        <img src="https://via.placeholder.com/50x50" alt="Logo" class="logo">
-        <div class="dropdown">
-            <a href="javascript:void(0)">Menu</a>
-            <div class="dropdown-content">
-                <a href="javascript:void(0)" onclick="openTab('home')">Accueil</a>
-                <a href="javascript:void(0)" onclick="openTab('tab1')">Présentation</a>
-                <a href="javascript:void(0)" onclick="openTab('tab2')">Jeux</a>
-                <a href="javascript:void(0)" onclick="openTab('tab3')">Galerie</a>
-            </div>
-        </div>
+        <a href="javascript:void(0)" onclick="openTab('home')">Accueil</a>
+        <a href="javascript:void(0)" onclick="openTab('tab1')">Présentation</a>
+        <a href="javascript:void(0)" onclick="openTab('tab3')">Galerie</a>
         <button onclick="toggleMode()">Changer de Mode</button>
     </div>
 
@@ -214,61 +169,6 @@
     <div id="tab1" class="content">
         <h2>Présentation</h2>
         <p>Explorez les différentes sections pour découvrir ce que nous avons à offrir.</p>
-    </div>
-
-    <!-- Jeux -->
-    <div id="tab2" class="content">
-        <h2>Jeux</h2>
-        <!-- Jeu de Devine le Nombre -->
-        <div id="guessNumber">
-            <h3>Jeu de Devine le Nombre</h3>
-            <p>Devinez le nombre entre 1 et 100 !</p>
-            <input type="number" id="guessInput" placeholder="Entrez un nombre">
-            <button onclick="guessNumber()">Devinez</button>
-            <p id="guessResult"></p>
-        </div>
-        <script>
-            function guessNumber() {
-                var numberToGuess = Math.floor(Math.random() * 100) + 1;
-                var guessInput = document.getElementById('guessInput').value;
-                var result = document.getElementById('guessResult');
-
-                if (guessInput == numberToGuess) {
-                    result.innerHTML = "Bravo ! Vous avez deviné le bon nombre.";
-                } else {
-                    result.innerHTML = "Désolé, ce n'est pas le bon nombre. Essayez encore.";
-                }
-            }
-        </script>
-
-        <!-- Jeu de Pierre-Papier-Ciseaux -->
-        <div id="rockPaperScissors">
-            <h3>Jeu de Pierre-Papier-Ciseaux</h3>
-            <p>Choisissez votre option :</p>
-            <button onclick="play('rock')">Pierre</button>
-            <button onclick="play('paper')">Papier</button>
-            <button onclick="play('scissors')">Ciseaux</button>
-            <p id="rpsResult"></p>
-        </div>
-        <script>
-            function play(userChoice) {
-                var choices = ['rock', 'paper', 'scissors'];
-                var computerChoice = choices[Math.floor(Math.random() * choices.length)];
-                var result = document.getElementById('rpsResult');
-
-                if (userChoice === computerChoice) {
-                    result.innerHTML = "Égalité ! Vous avez tous les deux choisi " + userChoice + ".";
-                } else if (
-                    (userChoice === 'rock' && computerChoice === 'scissors') ||
-                    (userChoice === 'paper' && computerChoice === 'rock') ||
-                    (userChoice === 'scissors' && computerChoice === 'paper')
-                ) {
-                    result.innerHTML = "Vous gagnez ! Vous avez choisi " + userChoice + " et l'ordinateur a choisi " + computerChoice + ".";
-                } else {
-                    result.innerHTML = "Vous perdez ! Vous avez choisi " + userChoice + " et l'ordinateur a choisi " + computerChoice + ".";
-                }
-            }
-        </script>
     </div>
 
     <!-- Galerie -->
