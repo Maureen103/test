@@ -113,6 +113,27 @@
             background-color: #1abc9c;
         }
 
+        /* Galerie */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #1abc9c; /* Effet de néon vert au survol */
+        }
+
         /* Responsive design */
         @media (max-width: 768px) {
             .navbar a {
@@ -157,8 +178,8 @@
 
     <div class="navbar">
         <a href="javascript:void(0)" onclick="openTab('tab1')">Présentation</a>
-        <a href="javascript:void(0)" onclick="openTab('tab2')">Musique</a>
         <a href="javascript:void(0)" onclick="openTab('tab3')">Jeu Tic-Tac-Toe</a>
+        <a href="javascript:void(0)" onclick="openTab('tab4')">Galerie</a>
     </div>
 
     <button onclick="toggleMode()">Changer de Mode</button>
@@ -167,16 +188,6 @@
     <div id="tab1" class="content active">
         <h2>Bienvenue sur Tryzortex</h2>
         <p class="animated-text">Découvrez des fonctionnalités interactives et fun !</p>
-    </div>
-
-    <!-- Musique de fond -->
-    <div id="tab2" class="content">
-        <h2>Musique de Fond</h2>
-        <p>Écoutez de la musique en arrière-plan tout en naviguant.</p>
-        <audio controls autoplay loop hidden>
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-            Votre navigateur ne supporte pas l'audio.
-        </audio>
     </div>
 
     <!-- Jeu Tic-Tac-Toe -->
@@ -192,6 +203,16 @@
             <button id="cell6" onclick="handleClick(6)"></button>
             <button id="cell7" onclick="handleClick(7)"></button>
             <button id="cell8" onclick="handleClick(8)"></button>
+        </div>
+    </div>
+
+    <!-- Galerie -->
+    <div id="tab4" class="content">
+        <h2>Galerie</h2>
+        <div class="gallery">
+            <img src="https://via.placeholder.com/300x200" alt="Image 1">
+            <img src="https://via.placeholder.com/300x200" alt="Image 2">
+            <img src="https://via.placeholder.com/300x200" alt="Image 3">
         </div>
     </div>
 
