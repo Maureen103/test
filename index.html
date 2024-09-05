@@ -13,12 +13,6 @@
             background-color: #121212;
             color: #fff;
             transition: background-color 0.5s ease, color 0.5s ease;
-            animation: fadeIn 1s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
 
         .navbar {
@@ -29,15 +23,18 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        .navbar a {
+        .navbar a, .navbar button {
             padding: 15px 30px;
             color: white;
             text-decoration: none;
             font-size: 18px;
+            background: none;
+            border: none;
+            cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .navbar a:hover {
+        .navbar a:hover, .navbar button:hover {
             background-color: #1abc9c;
             color: #fff;
         }
@@ -46,12 +43,13 @@
             display: none;
             padding: 50px 20px;
             text-align: center;
-            animation: fadeIn 0.5s ease-in-out;
-            transition: opacity 0.5s ease;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
 
         .active {
             display: block;
+            opacity: 1;
         }
 
         .animated-text {
@@ -117,7 +115,7 @@
 
         /* Responsive design */
         @media (max-width: 768px) {
-            .navbar a {
+            .navbar a, .navbar button {
                 font-size: 16px;
                 padding: 10px 15px;
             }
@@ -132,16 +130,18 @@
             var i, tabcontent;
             tabcontent = document.getElementsByClassName("content");
             for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.opacity = 0;
-                setTimeout(function(i) {
-                    tabcontent[i].style.display = "none";
-                }.bind(null, i), 500);
+                if (tabcontent[i].id === tabName) {
+                    tabcontent[i].style.display = "block";
+                    setTimeout(function() {
+                        tabcontent[i].style.opacity = 1;
+                    }, 10);
+                } else {
+                    tabcontent[i].style.opacity = 0;
+                    setTimeout(function() {
+                        tabcontent[i].style.display = "none";
+                    }, 500);
+                }
             }
-            var newTab = document.getElementById(tabName);
-            newTab.style.display = "block";
-            setTimeout(function() {
-                newTab.style.opacity = 1;
-            }, 10);
         }
 
         function toggleMode() {
