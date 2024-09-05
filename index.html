@@ -10,15 +10,17 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000;
+            background-color: #121212;
             color: #fff;
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
 
         .navbar {
             display: flex;
             justify-content: center;
-            background-color: #444;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            background-color: #333;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         .navbar a {
@@ -39,19 +41,6 @@
             padding: 50px 20px;
             text-align: center;
             animation: fadeIn 0.5s ease-in-out;
-        }
-
-        .content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            margin-top: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .content img:hover {
-            transform: scale(1.1);
         }
 
         .active {
@@ -89,6 +78,7 @@
             background-color: #16a085;
         }
 
+        /* Mode clair */
         .light-mode {
             background-color: white;
             color: black;
@@ -96,10 +86,11 @@
 
         /* Mode sombre */
         .dark-mode {
-            background-color: #000;
+            background-color: #121212;
             color: white;
         }
 
+        /* Styles pour Tic-Tac-Toe */
         .tic-tac-toe {
             display: grid;
             grid-template-columns: repeat(3, 100px);
@@ -112,12 +103,17 @@
             width: 100px;
             height: 100px;
             font-size: 24px;
-            background-color: #222;
+            background-color: #444;
             color: white;
             border: none;
+            transition: background-color 0.3s ease;
         }
 
-        /* Mobile */
+        .tic-tac-toe button:hover {
+            background-color: #1abc9c;
+        }
+
+        /* Responsive design */
         @media (max-width: 768px) {
             .navbar a {
                 font-size: 16px;
@@ -161,9 +157,8 @@
 
     <div class="navbar">
         <a href="javascript:void(0)" onclick="openTab('tab1')">Présentation</a>
-        <a href="javascript:void(0)" onclick="openTab('tab2')">Galerie</a>
-        <a href="javascript:void(0)" onclick="openTab('tab3')">Contact</a>
-        <a href="javascript:void(0)" onclick="openTab('tab4')">Jeu</a>
+        <a href="javascript:void(0)" onclick="openTab('tab2')">Musique</a>
+        <a href="javascript:void(0)" onclick="openTab('tab3')">Jeu Tic-Tac-Toe</a>
     </div>
 
     <button onclick="toggleMode()">Changer de Mode</button>
@@ -174,29 +169,18 @@
         <p class="animated-text">Découvrez des fonctionnalités interactives et fun !</p>
     </div>
 
-    <!-- Galerie d'images -->
+    <!-- Musique de fond -->
     <div id="tab2" class="content">
-        <h2>Galerie d'images</h2>
-        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKmX7Sp6PyCZ0j3tx5Edf_J4koR1_nde1ljA&s" target="_blank">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKmX7Sp6PyCZ0j3tx5Edf_J4koR1_nde1ljA&s" alt="Image Onglet 1">
-        </a>
-        <a href="https://img.freepik.com/vecteurs-premium/illustration-icone-test_430232-32.jpg" target="_blank">
-            <img src="https://img.freepik.com/vecteurs-premium/illustration-icone-test_430232-32.jpg" alt="Image Onglet 2">
-        </a>
-    </div>
-
-    <!-- Contact -->
-    <div id="tab3" class="content">
-        <h2>Contactez-nous</h2>
-        <p>Vous avez des questions ? N'hésitez pas à nous contacter.</p>
-        <audio controls autoplay loop>
+        <h2>Musique de Fond</h2>
+        <p>Écoutez de la musique en arrière-plan tout en naviguant.</p>
+        <audio controls autoplay loop hidden>
             <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
             Votre navigateur ne supporte pas l'audio.
         </audio>
     </div>
 
     <!-- Jeu Tic-Tac-Toe -->
-    <div id="tab4" class="content">
+    <div id="tab3" class="content">
         <h2>Jeu Tic-Tac-Toe</h2>
         <div class="tic-tac-toe">
             <button id="cell0" onclick="handleClick(0)"></button>
