@@ -127,26 +127,19 @@
     </style>
     <script>
         function openTab(tabName) {
-            var i, tabcontent;
-            tabcontent = document.getElementsByClassName("content");
-            for (i = 0; i < tabcontent.length; i++) {
-                if (tabcontent[i].id === tabName) {
-                    tabcontent[i].style.display = "block";
-                    setTimeout(function() {
-                        tabcontent[i].style.opacity = 1;
-                    }, 10);
+            const tabContents = document.querySelectorAll('.content');
+            tabContents.forEach(content => {
+                if (content.id === tabName) {
+                    content.classList.add('active');
                 } else {
-                    tabcontent[i].style.opacity = 0;
-                    setTimeout(function() {
-                        tabcontent[i].style.display = "none";
-                    }, 500);
+                    content.classList.remove('active');
                 }
-            }
+            });
         }
 
         function toggleMode() {
-            document.body.classList.toggle("light-mode");
-            document.body.classList.toggle("dark-mode");
+            document.body.classList.toggle('light-mode');
+            document.body.classList.toggle('dark-mode');
         }
     </script>
 </head>
